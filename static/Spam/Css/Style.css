@@ -1,0 +1,527 @@
+@import 'fonts.css';
+* {
+    padding: 0;
+    margin: 0;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden; /* Ensures blur doesn't spill */
+}
+
+/* Blurred background layer */
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../Images/bg1.jpg') no-repeat center center / cover;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+/* Ensures content is above the blur */
+section > * {
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    width: 100%;
+    height: 3.5em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+header nav {
+    height: 3.5em;
+    margin-right: 2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav .brand {
+    font-size: 2.3rem;
+    color: #fff;
+    font-family: Jonesy;
+    text-decoration: none;
+    padding: 0 0 0 2rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li a {
+    display: block;
+    padding: 0.6em 1em;
+    text-decoration: none !important;
+    color: gray !important;
+    font-size: 1.3rem;
+    font-family: Azonix;
+    transition: 0.3s color;
+}
+
+header nav ul li a:hover {
+    color: #fff !important;
+}
+
+.active {
+    color: #fff !important;
+}
+
+.content {
+    padding: 0 2em;
+    padding-top: 3.5em;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.main-form textarea {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    outline: none;
+    border: 2px white solid;
+    border-radius: 0.3em;
+    position: relative;
+    height: 10em;
+    margin-bottom: 0.5em;
+    resize: none;
+    padding: 0.5em;
+    color: #fff;
+    font-family: RobotL;
+    font-size: 1.3rem;
+}
+
+/* Special Colors for the Text */
+.typo-content h1 {
+    color: #FF6347; /* Tomato color */
+    font-family: Azonix;
+}
+
+.typo-content h5 {
+    color: #1E90FF; /* Dodger Blue */
+    font-family: Azonix;
+}
+
+.typo-content p {
+    color: #32CD32; /* Lime Green */
+    font-family: Centaur;
+    font-size: 1.7rem;
+    line-height: 1.7rem;
+}
+
+.check-holder {
+    display: flex;
+    justify-content: end;
+}
+
+.check-btn {
+    padding: 0.4em 4em;
+    border: none;
+    border-radius: 0.3em;
+    background: #fff;
+    font-family: Roboto;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.footer p {
+    font-size: 1.2rem;
+    font-family: Centaur;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* Answer Page Style */
+.AnswerSection {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.AnswerSection .answer {
+    color: #fff;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.backbtn, .backbtn:hover {
+    padding: 0em 1em;
+    color: #110404;
+    font-size: 3em;
+    text-decoration:none;
+    border: 5px #fff solid;
+    border-radius: 0.2em;
+}
+
+@media only screen and (max-width: 768px) {
+    .form-content {
+        padding-top: 0;
+    }
+    .main-form {
+        margin-bottom: 2em;
+    }
+    .typo-content {
+        padding-bottom: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 410px) {
+
+    header nav {
+        margin-right: 1em;
+    }
+
+    header nav ul li a {
+        padding: 1em 0.4em;
+        font-size: 1rem;
+    }
+}
+
+/* Animation for fading in the content */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply the animation to text elements */
+.typo-content h1, 
+.typo-content h5, 
+.typo-content p {
+    opacity: 0; /* Start with hidden content */
+    animation: fadeIn 1s ease-out forwards; /* Apply fadeIn animation */
+}
+
+/* Delay each element slightly for a staggered effect */
+.typo-content h1 {
+    animation-delay: 0.3s;
+}
+
+.typo-content h5 {
+    animation-delay: 0.6s;
+}
+
+.typo-content p {
+    animation-delay: 0.9s;
+}
+/* General Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Main Section */
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(255, 0, 0, 0.5)), url('../Images/bg1.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* Form Container */
+.form-content {
+    width: 80%;
+    margin: 0 auto;
+    padding: 4em 2em;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    color: white;
+    position: relative;
+    z-index: 1;
+    animation: slideUp 1s ease-out;
+}
+
+/* Form Animation */
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Textarea Styling */
+.main-form textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+    outline: none;
+    border: 2px solid #FFD700; /* Gold border for a polished look */
+    border-radius: 10px;
+    height: 12em;
+    padding: 1em;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    transition: 0.3s ease;
+    resize: none;
+    margin-bottom: 1.5em;
+}
+
+/* Textarea Focus Effect */
+.main-form textarea:focus {
+    border-color: #FFD700;
+    background: rgba(255, 255, 255, 0.2); /* Brighter background on focus */
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.7); /* Glow effect */
+}
+
+/* Radio Buttons Container */
+.algo-choice label {
+    font-family: 'Centaur', serif;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-right: 1.5em;
+    display: inline-block;
+}
+
+/* Custom Radio Button Styling */
+.radiocontainer {
+    position: relative;
+    display: inline-block;
+    margin: 0.5em 0;
+    cursor: pointer;
+}
+
+/* Hide default radio button */
+.radiocontainer input[type="radio"] {
+    display: none;
+}
+
+/* Custom Checkmark Styling */
+.radiocontainer .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition: 0.3s ease;
+}
+
+/* Checkmark when radio button is selected */
+.radiocontainer input[type="radio"]:checked + .checkmark {
+    background-color: #FFD700; /* Gold when selected */
+    border-color: #FFD700;
+}
+
+/* Hover effect for radio buttons */
+.radiocontainer:hover .checkmark {
+    background-color: #444;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.6); /* Glow effect */
+}
+
+/* Check Button Styling */
+.check-holder {
+    display: flex;
+    justify-content: end;
+}
+
+.check-btn {
+    padding: 0.8em 4em;
+    border: none;
+    border-radius: 30px;
+    background: #FFD700;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #110404;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 1.5em;
+    position: relative;
+}
+
+/* Hover Effect for the Button */
+.check-btn:hover {
+    background: #f1c40f;
+    transform: scale(1.05); /* Slight grow effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Subtle shadow effect */
+}
+
+/* Focus Effect for Button */
+.check-btn:focus {
+    outline: none;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+}
+
+/* Footer Styling */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 2em 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Centaur', serif;
+    letter-spacing: 1px;
+}
+
+/* Media Queries for Responsiveness */
+@media only screen and (max-width: 768px) {
+    .form-content {
+        width: 90%;
+        padding: 3em 1.5em;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .form-content {
+        padding: 2em 1em;
+    }
+    .main-form textarea {
+        font-size: 1rem;
+    }
+    .check-btn {
+        padding: 0.8em 3em;
+    }
+}
+/* Fade-in with slight zoom effect */
+@keyframes fadeZoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Text glow effect */
+.glow {
+    text-shadow: 0 0 5px #fff, 0 0 10px #00ffe7, 0 0 15px #00ffe7;
+}
+
+/* Section styling */
+.AnswerSection {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeZoom 1.2s ease-out both;
+    padding: 1em;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+}
+
+/* Paragraph styling */
+.AnswerSection p {
+    font-size: 2.4rem;
+    font-weight: 600;
+    text-align: center;
+    color: #f1f1f1;
+    animation: fadeZoom 1s ease-out;
+    animation-delay: 0.4s;
+    animation-fill-mode: both;
+    line-height: 1.6em;
+}
+
+/* HAM message color */
+.ham-text {
+    color: #00ff95;
+    text-shadow: 0 0 8px #00ffcc;
+}
+
+/* SPAM message color */
+.spam-text {
+    color: #ff4c4c;
+    text-shadow: 0 0 8px #ff7373;
+}
+
+/* Back button styling */
+.backbtn {
+    background-color: #17a2b8;
+    color: white;
+    padding: 1em 2.5em;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border-radius: 0.3em;
+    margin-top: 2em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeZoom 1s ease-out;
+    animation-delay: 0.8s;
+    animation-fill-mode: both;
+}
+
+.backbtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #17a2b8;
+}
+
+/* Style the textarea */
+textarea#rawdata {
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    resize: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea#rawdata:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+/* Error message styling */
+#result {
+    margin-top: 10px;
+    font-weight: bold;
+    color: red;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease-in-out;
+}
+
+#result {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    min-height: 1.5em; /* reserve space to avoid layout jump */
+    color: red;
+    font-weight: bold;
+}
+
+#result.visible {
+    opacity: 1;
+}
+
