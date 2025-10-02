@@ -9,7 +9,7 @@
 The **Email Spam Detection** project is a machine learning-based application that classifies emails as **spam or non-spam (ham)**. The model is trained on a dataset of emails and uses **text preprocessing, feature extraction, and classification algorithms** to accurately detect spam emails. This helps improve email management and security by automatically filtering unwanted messages.
 
 ---
-
+ 
 ## Features
 - Classifies emails as **spam** or **ham (non-spam)**.  
 - Preprocesses email content (removing punctuation, stopwords, and applying tokenization).  
