@@ -1,4 +1,4 @@
-# 📧 Email Spam Detection
+# 📧 Email spam detection
 
 **Author:** Mohammed Ilyas  
 **Technology Stack:** Python, Machine Learning, Scikit-learn, Pandas, NumPy  
